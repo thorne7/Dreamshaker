@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS Quiz</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h2><span id="highScore"><a href="highscore.html">View Highscores</a></span></h2>
+        <h2>Timer:<span id="time"></span></h2>
+        <h2>Score:<span id="totalScore"></span></h2>
+    </header>
+
+    <div class="quizContainer" >
+        <h1 class="challenge">Coding Quiz Challenge</h1>
+            <p>
+                Answer the following against the clock!
+            </br>
+                Incorrect answers will deduct time
+            </p>
+            
+        <div class="theQuiz">
+            <button id="start">
+                Start Quiz
+            </button>
+            <div class="theQuiz-content" id="q">
+                <span class="insert"></span>
+                    <p></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>
