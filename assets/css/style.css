@@ -1,64 +1,24 @@
-body {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    text-align:center;
+* {
+    box-sizing: border-box;
+    border-radius: 15px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-h2 {
-    color: rgb(26, 220, 223);
+a {
+    text-decoration: none;
+    display: block;
 }
 
-#li {
-    display: flex;
-    align-content: center;
-}
-.challenge {
-    padding-top: 150px ;
-    align-items: center;
-}
-
-p.challenge {
-    font-size: 14;
-}
-
-.theQuiz {
-    align-content: center;
-}
-
-.theQuiz-content {
-    align-content: center;
-}    
-
-button {
-    background-color:rgb(70, 43, 226);
-    color: white;
-    height: 50px;
-    width: 100px;
-    font-size: 20;
-    align-content: center;
-    font-weight: bolder;
-}
-
-
-#start {
-    align-content: center;
-}
-
-#q {
-    align-content: center;
-}
-#highScore {
-    float:left;
-    padding: 25px 25px 24px;
-}
-
-#time {
-    float:right;
+.btn {
+    padding: 25px;
+    background-color: rgb(179, 196, 179);
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 30%;
+    font-size: 25px;
     color: black;
-    padding: 25px 25px 24px;
-}
-
-#totalScore {
-    float:right;
-    color: black;
-    padding: 25px 25px 24px;
+    border-radius: 25px;
+    border-style: solid; 
 }
