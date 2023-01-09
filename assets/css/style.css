@@ -16,3 +16,34 @@
     border-radius: 25px;
     border-style: solid; 
 }
+
+header {
+    padding: 2px;
+    color:rgba(40, 34, 118, 0.989);
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 10%;
+    font-size: 25px;
+}
+
+h1 {
+    padding: 40px;
+    color:rgba(17, 0, 255, 0.989);
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 10%;
+    font-size: 50px;
+    display: inline;
+}
+
+li{
+    padding: 2px;
+    background-color: rgb(67, 125, 67);
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 30%;
+    font-size: 25px;
+    color: black;
+    border-radius: 25px;
+    border-style: solid; 
+}

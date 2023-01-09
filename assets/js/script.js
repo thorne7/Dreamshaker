@@ -3,7 +3,7 @@ var questions = [
     //1
     {
         question: 'Which of these is requied to create a string',
-        options: [ '{}','()','""','<>'],
+        options: [ '{ }','( )','" "','< >'],
         answer: '" "'
        
     },
