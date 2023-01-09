@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-#start {
+button {
     padding: 2px;
     background-color: rgba(17, 0, 255, 0.989);
     margin: 0 auto;
@@ -46,4 +46,8 @@ li{
     color: black;
     border-radius: 25px;
     border-style: solid; 
+}
+
+li:hover {
+    background-color: rgba(67, 125, 67, 0.219);
 }
