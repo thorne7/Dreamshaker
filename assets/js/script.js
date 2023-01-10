@@ -32,11 +32,11 @@ var score = 0;
 var timer = 80;
 
 document.getElementById("start").addEventListener("click", startQuiz);
-document.getElementById("highscores").addEventListener("click", highscorebtn);
+document.getElementById("highscores").addEventListener("click", highscoresbtn);
 
 var quizContainer = document.querySelector('.quizContainer')
 var timeContainer = document.getElementById('time')
-// var highscoreContainer = document.getElementById('highscore')
+var highscores = document.getElementById('highscores')
 var storage = JSON.parse(localStorage.getItem('highscore'))
 
 function startQuiz() {
@@ -78,6 +78,7 @@ function displayQuestionOne() {
                 timer -= 10
             }
             displayQuestionTwo()
+            
         })
     }
 }
@@ -174,8 +175,12 @@ function endQuiz() {
     btn.textContent = 'Submit'
     quizContainer.append(btn)
 
+    var btnback = document.createElement('button')
+    btnback.textContent = 'Back'
+    quizContainer.append(btnback)
+
     btn.addEventListener('click', function() {
-        var storage = JSON.parse(localStorage.getItem('highscore'))
+        var storage = JSON.parse(localStorage.getItem('highscores'))
         if(storage === null) {
             storage = []
         }
@@ -187,22 +192,29 @@ function endQuiz() {
 
         storage.push(user)
         localStorage.setItem('highscore', JSON.stringify(storage))
-        highscorebtn
+        
+    })
+    highscoresbtn;
+     btnback.addEventListener('click', function() {   
     })
 
 };
 
-function highscorebtn() {
-    var storage = JSON.parse(localStorage.getItem('highscore'))
+
+function highscoresbtn() {
+    var storage = JSON.parse(localStorage.getItem('highscores'))
+    // quizContainer.append('')
 
     if (storage === null) {
-        highscore.textContent = 'No Highscores'
+        highscores.textContent = 'No Highscores'
     } else {
-        highscore.textContent = ''
+        highscores = document.createElement('ul')
+        quizContainer.append(highscores)
+        highscores.textContent = ''
         for(var i = 0; i < storage.length; i++) {
             var p = document.createElement('p')
             p.textContent = 'Name: ' + storage[i].name + ' ----- Score: ' + storage[i].currentScore 
-            highscore.append(p)
+            highscores.append(p)
         }
     }
 }
