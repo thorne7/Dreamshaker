@@ -29,16 +29,13 @@ var questions = [
 ]; 
 
 var score = 0;
-var timer = 80;
+var timer = 60;
 
 document.getElementById("start").addEventListener("click", startQuiz);
-document.getElementById("highscores").addEventListener("click", highscoresbtn);
 
 var quizContainer = document.querySelector('.quizContainer')
 var timeContainer = document.getElementById('time')
-var highscores = document.getElementById('highscores')
-var storage = JSON.parse(localStorage.getItem('highscore'))
-
+// function starting timer and seeries of questions
 function startQuiz() {
     quizContainer.innerHTML = ""
     startTimer()
@@ -56,6 +53,7 @@ function startTimer() {
     }, 1000)
 }
 
+//creates element for questions/answer options & orders options in list 
 function displayQuestionOne() {
     var questionEl = document.createElement('h1')
     questionEl.textContent = questions[0].question
@@ -68,7 +66,7 @@ function displayQuestionOne() {
         listItems.setAttribute('id', questions[0].options[i])
         listItems.textContent = questions[0].options[i]
         optionsContainer.append(listItems)
-
+// Event listener for answer adding to score or deduct time then 'display next question'
         listItems.addEventListener('click', function (event) {
             if (event.target.id === questions[0].answer) {
                 console.log('correct');
@@ -78,7 +76,6 @@ function displayQuestionOne() {
                 timer -= 10
             }
             displayQuestionTwo()
-            
         })
     }
 }
@@ -163,10 +160,11 @@ function displayQuestionFour() {
         })
     }
 }
-// fixing storage & high score 
+//  End showing score
+
 function endQuiz() {
     quizContainer.textContent = 'Quiz is over your final score is: ' + score
-
+// input bar for name w/ appended button
     var input = document.createElement('input')
     input.setAttribute('placeholder', 'What is you name?')
     quizContainer.append(input)
@@ -174,13 +172,9 @@ function endQuiz() {
     var btn = document.createElement('button')
     btn.textContent = 'Submit'
     quizContainer.append(btn)
-
-    var btnback = document.createElement('button')
-    btnback.textContent = 'Back'
-    quizContainer.append(btnback)
-
+// function to get highscores for 'highscores.html'
     btn.addEventListener('click', function() {
-        var storage = JSON.parse(localStorage.getItem('highscores'))
+        var storage = JSON.parse(localStorage.getItem('highscore'))
         if(storage === null) {
             storage = []
         }
@@ -192,29 +186,7 @@ function endQuiz() {
 
         storage.push(user)
         localStorage.setItem('highscore', JSON.stringify(storage))
-        
-    })
-    highscoresbtn;
-     btnback.addEventListener('click', function() {   
+        window.location.href = 'highscores.html'
     })
 
 };
-
-
-function highscoresbtn() {
-    var storage = JSON.parse(localStorage.getItem('highscores'))
-    // quizContainer.append('')
-
-    if (storage === null) {
-        highscores.textContent = 'No Highscores'
-    } else {
-        highscores = document.createElement('ul')
-        quizContainer.append(highscores)
-        highscores.textContent = ''
-        for(var i = 0; i < storage.length; i++) {
-            var p = document.createElement('p')
-            p.textContent = 'Name: ' + storage[i].name + ' ----- Score: ' + storage[i].currentScore 
-            highscores.append(p)
-        }
-    }
-}
